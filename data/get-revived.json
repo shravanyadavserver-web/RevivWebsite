@@ -1,0 +1,74 @@
+[
+  {
+    "icon": "/images/get-revived/revived-01.svg",
+    "title": "When Your Skin Look So Tired?",
+    "description": "Stress, pollution, and lack of sleep are taking a toll on your face.",
+    "therapies": ["Vitaglow IV", "Glutathione IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-02.svg",
+    "title": "Feeling Older Than You Should?",
+    "description": "Low stamina, early signs of ageing, and constant tiredness.",
+    "therapies": ["NAD+ IV", "REVIVe IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-03.svg",
+    "title": "Training Hard, Recovering Slow",
+    "description": "You're putting in the effort, but your body isn't bouncing back fast enough.",
+    "therapies": ["Hydromax IV", "Megaboost IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-04.svg",
+    "title": "Wedding Glow, Not Wedding Stress",
+    "description": "Endless meetings and screen time, but your mind just isn't sharp anymore.",
+    "therapies": ["Vitaglow IV", "REVIVe IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-05.svg",
+    "title": "Always On Camera, Never Fully Fresh",
+    "description": "Meetings, social media, events—yet you feel drained and it shows.",
+    "therapies": ["Vitaglow IV", "Megaboost IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-06.svg",
+    "title": "Feeling the after effects?",
+    "description": "Headache, nausea, and zero energy after a late night out.",
+    "therapies": ["Ultraviv IV", "Ultraviv PRO IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-07.svg",
+    "title": "Not Sick, Just Not Your Best",
+    "description": "Constant low energy and fatigue, even being ill.",
+    "therapies": ["Royal Flush IV", "Megaboost IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-08.svg",
+    "title": "Brain Fog?",
+    "description": "Endless meetings and screen time, but your mind just isn't sharp anymore.",
+    "therapies": ["Methylene Blue IV", "NAD+ IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-09.svg",
+    "title": "High Pressure. Low Energy.",
+    "description": "Work demands are high, but your body isn't keeping up.",
+    "therapies": ["Megaboost IV", "10X Signature IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-10.svg",
+    "title": "Jet Lag Showing?",
+    "description": "You've landed, but fatigue and dull skin are still visible.",
+    "therapies": ["Ultraviv IV", "Vitaglow IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-11.svg",
+    "title": "Time for a Body Reset?",
+    "description": "Stress, food habits, and lifestyle are leaving you feeling heavy and sluggish.",
+    "therapies": ["Royal Flush IV", "REVIVe IV"]
+  },
+  {
+    "icon": "/images/get-revived/revived-12.svg",
+    "title": "Need an Instant Boost?",
+    "description": "A big day ahead, but you don't have the energy to match it.",
+    "therapies": ["Miniboost IV", "Megaboost IV"]
+  }
+]

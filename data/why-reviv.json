@@ -1,0 +1,37 @@
+[
+  {
+    "parameter": "Medical Leadership",
+    "reviv": "Doctor-led, clinically supervised",
+    "others": "Not always doctor-supervised"
+  },
+  {
+    "parameter": "Treatment Protocols",
+    "reviv": "Standardized, evidence-based protocols",
+    "others": "Inconsistent or undefined protocols"
+  },
+  {
+    "parameter": "Personalization",
+    "reviv": "Tailored to individual needs",
+    "others": "One-size-fits-all treatments"
+  },
+  {
+    "parameter": "Ingredient Quality",
+    "reviv": "Pharmaceutical-grade, lab-tested",
+    "others": "Quality not always disclosed"
+  },
+  {
+    "parameter": "Safety & Monitoring",
+    "reviv": "Continuous monitoring, clinical standards",
+    "others": "Limited supervision"
+  },
+  {
+    "parameter": "Experience",
+    "reviv": "Private, premium wellness environment",
+    "others": "Basic clinic or salon setup"
+  },
+  {
+    "parameter": "Wellness Approach",
+    "reviv": "Holistic, results-driven outcomes",
+    "others": "Focused on quick fixes"
+  }
+]

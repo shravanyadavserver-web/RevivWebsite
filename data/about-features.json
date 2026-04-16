@@ -1,0 +1,27 @@
+[
+  {
+    "icon": "/images/about/about-01.svg",
+    "title": "10+ years",
+    "description": "of clinical expertise"
+  },
+  {
+    "icon": "/images/about/about-02.svg",
+    "title": "Presence across",
+    "description": "47 countries"
+  },
+  {
+    "icon": "/images/about/about-03.svg",
+    "title": "108+ clinics",
+    "description": "worldwide"
+  },
+  {
+    "icon": "/images/about/about-04.svg",
+    "title": "Doctor-led",
+    "description": "IV therapies"
+  },
+  {
+    "icon": "/images/about/about-05.svg",
+    "title": "Independently",
+    "description": "tested formulations"
+  }
+]

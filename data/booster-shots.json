@@ -1,0 +1,38 @@
+[
+  {
+    "id": "glutathione",
+    "name": "Glutathione",
+    "description": "Supplement your body with glutathione, the master antioxidant",
+    "image": "/images/booster-shots/booster-01.jpg"
+  },
+  {
+    "id": "slimboost",
+    "name": "Slimboost",
+    "description": "Boost metabolism and energy with Slimboost — your support for effective weight management.",
+    "image": "/images/booster-shots/booster-02.jpg"
+  },
+  {
+    "id": "nad-plus",
+    "name": "NAD+",
+    "description": "Boost your NAD levels with our fast-acting NAD+ shot — designed for efficient cellular energy and overall wellness.",
+    "image": "/images/booster-shots/booster-03.jpg"
+  },
+  {
+    "id": "b-family",
+    "name": "B Family",
+    "description": "B vitamins support energy, reduce fatigue, and help maintain a healthy immune system for overall wellness.",
+    "image": "/images/booster-shots/booster-04.jpg"
+  },
+  {
+    "id": "vitamin-c",
+    "name": "Vitamin C",
+    "description": "A quick way to support immune health and detoxification",
+    "image": "/images/booster-shots/booster-05.jpg"
+  },
+  {
+    "id": "vitamin-d",
+    "name": "Vitamin D",
+    "description": "Boost your immune system and strengthen bone health",
+    "image": "/images/booster-shots/booster-06.jpg"
+  }
+]

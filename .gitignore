@@ -34,3 +34,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# playwright
+/playwright-report/
+/test-results/
+
+# design/figma assets (not used by website code)
+/Assets/
+figma-nodes.json
+figma-design*.png
+
+# duplicate logo (website uses public/logo.png)
+/Logo.png

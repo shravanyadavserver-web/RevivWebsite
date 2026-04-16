@@ -1,0 +1,151 @@
+[
+  {
+    "id": "vitaglow",
+    "name": "Vitaglow",
+    "tagline": "Glow from within",
+    "image": "/images/iv-therapies/iv-t-01.jpg",
+    "benefits": [
+      "Supports skin health",
+      "Promotes an even, radiant complexion",
+      "Supports hair & nail health",
+      "Supports natural detoxification",
+      "Supports healthy aging"
+    ]
+  },
+  {
+    "id": "miniboost",
+    "name": "Miniboost",
+    "tagline": "Small and mighty.",
+    "image": "/images/iv-therapies/iv-t-02.jpg",
+    "benefits": [
+      "Boosts energy",
+      "Supports natural detox",
+      "Supports immunity"
+    ]
+  },
+  {
+    "id": "megaboost",
+    "name": "Megaboost",
+    "tagline": "The signature IV.",
+    "image": "/images/iv-therapies/iv-t-03.jpg",
+    "benefits": [
+      "Boosts energy",
+      "Supports immunity",
+      "Supports natural detoxification",
+      "Supports hydration"
+    ]
+  },
+  {
+    "id": "nad-plus",
+    "name": "NAD+ IV",
+    "tagline": "Biohack with NAD+ IV",
+    "image": "/images/iv-therapies/iv-t-04.jpg",
+    "benefits": [
+      "Supports cellular repair & regeneration",
+      "Boosts energy levels",
+      "Supports metabolic function",
+      "Enhances cognitive (brain) function",
+      "Supports healthy aging",
+      "Supports skin & joint health"
+    ]
+  },
+  {
+    "id": "ultraviv",
+    "name": "Ultraviv",
+    "tagline": "Recover and recharge",
+    "image": "/images/iv-therapies/iv-t-05.jpg",
+    "benefits": [
+      "Supports hydration",
+      "Boosts energy",
+      "Restores balance",
+      "Reduces fatigue"
+    ]
+  },
+  {
+    "id": "ultraviv-pro",
+    "name": "Ultraviv PRO",
+    "tagline": "Ultraviv like a PRO",
+    "image": "/images/iv-therapies/iv-t-06.jpg",
+    "benefits": [
+      "Helps relieve mild symptoms",
+      "Supports hydration",
+      "Boosts energy",
+      "Reduces fatigue",
+      "Supports overall recovery"
+    ]
+  },
+  {
+    "id": "hydromax",
+    "name": "Hydromax",
+    "tagline": "REVIV your peak performance",
+    "image": "/images/iv-therapies/iv-t-07.jpg",
+    "benefits": [
+      "Rehydration",
+      "Electrolyte balance",
+      "Muscle health",
+      "Muscle recovery",
+      "Reduction of cellular stress"
+    ]
+  },
+  {
+    "id": "revive",
+    "name": "REVIVe",
+    "tagline": "The ultimate in wellness",
+    "image": "/images/iv-therapies/iv-t-08.jpg",
+    "benefits": [
+      "Supports detox & cleansing",
+      "Supports collagen & healthy aging",
+      "Boosts energy, mood & sleep",
+      "Supports brain function",
+      "Supports hair, skin & nails",
+      "Supports DNA & cellular health",
+      "Supports fat metabolism"
+    ]
+  },
+  {
+    "id": "royal-flush",
+    "name": "Royal Flush",
+    "tagline": "Restore and recuperate",
+    "image": "/images/iv-therapies/iv-t-09.jpg",
+    "benefits": [
+      "Helps relieve mild symptoms",
+      "Supports faster recovery",
+      "Supports nervous system health",
+      "Supports metabolism",
+      "Helps maintain hormone balance",
+      "Supports natural detoxification",
+      "Supports hydration",
+      "Boosts energy"
+    ]
+  },
+  {
+    "id": "methylene-blue",
+    "name": "Methylene Blue",
+    "tagline": "Upgrade your baseline",
+    "image": "/images/iv-therapies/iv-t-10.jpg",
+    "benefits": [
+      "Boosts energy",
+      "Improves mental clarity",
+      "Supports memory",
+      "Supports mood balance",
+      "Reduces brain fog",
+      "Supports oxygen efficiency",
+      "Provides antioxidant support"
+    ]
+  },
+  {
+    "id": "10x-signature",
+    "name": "10X Signature IV",
+    "tagline": "10X blend for optimal wellness",
+    "image": "/images/iv-therapies/iv-t-11.jpg",
+    "benefits": [
+      "Boosts energy",
+      "Supports muscle health & recovery",
+      "Supports immunity",
+      "Supports natural detoxification",
+      "Supports hydration",
+      "Helps reduce fatigue",
+      "Supports overall wellness"
+    ]
+  }
+]
