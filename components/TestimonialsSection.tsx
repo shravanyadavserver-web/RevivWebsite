@@ -1,18 +1,13 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, memo } from "react";
 import Image from "next/image";
 import testimonials from "@/data/testimonials.json";
+import type { Testimonial } from "@/types";
 
-// Group testimonials into pairs for 2-at-a-time display
-const pairs: (typeof testimonials)[] = [];
-for (let i = 0; i < testimonials.length; i += 2) {
-  pairs.push(testimonials.slice(i, i + 2));
-}
-
-function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[number] }) {
+const TestimonialCard = memo(function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="flex flex-col h-[320px]">
+    <div className="flex flex-col md:h-[320px]">
       {/* Card body */}
       <div className="relative bg-white rounded-[2rem] pl-[90px] pr-6 pt-8 pb-6 flex-1 flex flex-col">
         {/* Circular photo overlapping left edge */}
@@ -22,38 +17,47 @@ function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[n
             alt={`${testimonial.name} - REVIV patient`}
             width={150}
             height={150}
+            sizes="140px"
             className="rounded-full object-cover w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] border-4 border-blue-200/60"
           />
         </div>
         {/* Quote text */}
-        <p className="text-gray-600 leading-relaxed text-sm lg:text-[15px] flex-1">
+        <p className="text-[15px] font-normal text-[#5D5D5D] leading-[22px] tracking-normal capitalize flex-1">
           {testimonial.quote}
         </p>
         {/* Name at bottom */}
-        <p className="font-bold text-gray-900 text-base mt-4">
+        <p className="text-[16px] font-bold text-[#2A2A2A] leading-[22px] tracking-normal capitalize mt-4">
           {testimonial.name}
         </p>
       </div>
     </div>
   );
-}
+});
 
 export default function TestimonialsSection() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const maxPage = pairs.length - 1;
-
-  const goNext = useCallback(() => {
-    setCurrentPage((prev) => (prev >= maxPage ? 0 : prev + 1));
-  }, [maxPage]);
-
-  const goPrev = useCallback(() => {
-    setCurrentPage((prev) => (prev <= 0 ? maxPage : prev - 1));
-  }, [maxPage]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [perPage, setPerPage] = useState(2);
 
   useEffect(() => {
-    const timer = setInterval(goNext, 5000);
-    return () => clearInterval(timer);
-  }, [goNext]);
+    const mql = window.matchMedia("(min-width: 768px)");
+    const onChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      setPerPage(e.matches ? 2 : 1);
+      setCurrentIndex(0);
+    };
+    onChange(mql);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  const totalPages = Math.ceil(testimonials.length / perPage);
+
+  const goNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1 >= totalPages ? 0 : prev + 1));
+  }, [totalPages]);
+
+  const goPrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev <= 0 ? totalPages - 1 : prev - 1));
+  }, [totalPages]);
 
   return (
     <section id="testimonials" className="bg-primary py-16 lg:py-20">
@@ -61,10 +65,10 @@ export default function TestimonialsSection() {
         {/* Header with arrows */}
         <div className="flex items-start justify-between mb-14">
           <div>
-            <p className="text-sm font-semibold text-white uppercase tracking-wider mb-2">
+            <p className="text-[20px] font-normal text-white leading-none tracking-normal uppercase">
               WE ARE TOP RATED ON GOOGLE!
             </p>
-            <h2 className="text-3xl md:text-5xl font-bold text-white">
+            <h2 className="text-[48px] font-normal text-white leading-none tracking-normal capitalize">
               What Our Patients Say
             </h2>
           </div>
@@ -90,26 +94,30 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Carousel - 2 cards at a time */}
-        <div className="overflow-hidden">
+        {/* Carousel */}
+        <div className="overflow-hidden" aria-live="polite" aria-atomic="true">
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{
-              width: `${pairs.length * 100}%`,
-              transform: `translateX(-${currentPage * (100 / pairs.length)}%)`,
+              width: `${totalPages * 100}%`,
+              transform: `translateX(-${currentIndex * (100 / totalPages)}%)`,
             }}
           >
-            {pairs.map((pair, pageIdx) => (
-              <div
-                key={pageIdx}
-                className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-8 pl-16 pr-4"
-                style={{ width: `${100 / pairs.length}%` }}
-              >
-                {pair.map((testimonial) => (
-                  <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-                ))}
-              </div>
-            ))}
+            {Array.from({ length: totalPages }, (_, pageIdx) => {
+              const start = pageIdx * perPage;
+              const pageItems = testimonials.slice(start, start + perPage);
+              return (
+                <div
+                  key={pageIdx}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-8 pl-16 pr-4"
+                  style={{ width: `${100 / totalPages}%` }}
+                >
+                  {pageItems.map((testimonial) => (
+                    <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+                  ))}
+                </div>
+              );
+            })}
           </div>
         </div>
 

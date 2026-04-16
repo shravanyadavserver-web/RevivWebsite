@@ -1,0 +1,9 @@
+[
+  { "label": "Home", "href": "#" },
+  { "label": "IV Therapies", "href": "#iv-therapies" },
+  { "label": "Booster Shots (IM)", "href": "#booster-shots" },
+  { "label": "Why REVIV", "href": "#why-reviv" },
+  { "label": "Testimonials", "href": "#testimonials" },
+  { "label": "Blogs", "href": "#blogs" },
+  { "label": "Contact Us", "href": "#footer" }
+]

@@ -6,15 +6,15 @@ export default function DoorstepSection() {
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-sm font-semibold text-[#041E42] uppercase tracking-wider mb-2">
+            <p className="text-[20px] font-normal text-navy leading-none tracking-normal uppercase mb-2">
               REVIVED AT HOME
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#041E42] mb-6 leading-tight">
+            <h2 className="text-[48px] font-normal leading-none tracking-normal text-primary mb-6">
               Wellness Delivered
               <br />
               to Your Doorstep
             </h2>
-            <div className="space-y-4 text-gray-600 leading-relaxed text-sm lg:text-base mb-8">
+            <div className="space-y-4 text-[16px] font-normal text-[#8D8D8D] leading-[22px] tracking-normal text-justify mb-8">
               <p>
                 Hyderabad&apos;s fast-paced lifestyle often leaves little time to
                 prioritise your health. At REVIV Hyderabad, we bring advanced wellness

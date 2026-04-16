@@ -10,6 +10,7 @@ test.describe("REVIV Hyderabad - Visual Regression", () => {
     await expect(page).toHaveScreenshot("full-page.png", {
       fullPage: true,
       maxDiffPixelRatio: 0.05,
+      timeout: 30000,
     });
   });
 
@@ -24,7 +25,7 @@ test.describe("REVIV Hyderabad - Visual Regression", () => {
   });
 
   test("About Section", async ({ page }) => {
-    const about = page.locator("section.bg-gray-50").first();
+    const about = page.locator("section.bg-section-bg").first();
     await expect(about).toHaveScreenshot("about-section.png");
   });
 

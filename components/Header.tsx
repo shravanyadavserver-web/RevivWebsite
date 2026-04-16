@@ -3,16 +3,10 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import navLinks from "@/data/navigation.json";
+import type { NavLink } from "@/types";
 
-const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "IV Therapies", href: "#iv-therapies" },
-  { label: "Booster Shots (IM)", href: "#booster-shots" },
-  { label: "Why REVIV", href: "#why-reviv" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Blogs", href: "#" },
-  { label: "Contact Us", href: "#footer" },
-];
+const links: NavLink[] = navLinks;
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -30,6 +24,15 @@ export default function Header() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -66,14 +69,14 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-          {navLinks.map((link) => (
+          {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className={`relative text-[13px] font-semibold tracking-wide uppercase transition-colors duration-200 py-1 ${
+              className={`relative text-[16px] font-normal tracking-normal capitalize leading-none transition-colors duration-200 py-1 ${
                 activeHash === link.href
                   ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full"
-                  : "text-gray-600 hover:text-primary"
+                  : "text-primary hover:text-primary-dark"
               }`}
             >
               {link.label}
@@ -92,7 +95,8 @@ export default function Header() {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="lg:hidden p-2 text-gray-700 hover:text-primary transition-colors"
-          aria-label="Toggle menu"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? (
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,14 +113,14 @@ export default function Header() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-1 shadow-lg">
-          {navLinks.map((link) => (
+          {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className={`block text-sm font-semibold py-3 px-3 rounded-lg transition-colors ${
+              className={`block text-[16px] font-normal tracking-normal capitalize leading-none py-3 px-3 rounded-lg transition-colors ${
                 activeHash === link.href
                   ? "text-primary bg-primary/5"
-                  : "text-gray-600 hover:text-primary hover:bg-gray-50"
+                  : "text-primary hover:text-primary-dark hover:bg-gray-50"
               }`}
               onClick={() => setMobileOpen(false)}
             >

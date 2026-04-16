@@ -3,7 +3,7 @@ import aboutFeatures from "@/data/about-features.json";
 
 export default function AboutSection() {
   return (
-    <section className="bg-[#EDF2FA] py-12">
+    <section className="bg-section-bg py-12">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
         <div className="flex flex-wrap justify-between items-center gap-8">
           {aboutFeatures.map((feature) => (
@@ -15,8 +15,8 @@ export default function AboutSection() {
                 height={40}
               />
               <div>
-                <p className="text-sm font-bold text-primary">{feature.title}</p>
-                <p className="text-sm font-medium text-primary">{feature.description}</p>
+                <p className="text-[18px] font-normal text-primary leading-none tracking-normal">{feature.title}</p>
+                <p className="text-[18px] font-normal text-primary leading-none tracking-normal">{feature.description}</p>
               </div>
             </div>
           ))}

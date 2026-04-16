@@ -7,8 +7,10 @@ export default function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           {/* Left Content */}
           <div className="flex-1 max-w-2xl">
-            <h1 className="text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.25rem] font-bold text-white leading-tight mb-6">
-              Globally Trusted IV Therapy, Now in Hyderabad
+            <h1 className="text-[50px] font-normal text-white leading-none tracking-normal capitalize mb-6">
+              Globally Trusted IV Therapy,
+              <br />
+              Now in Hyderabad
             </h1>
 
             <ul className="space-y-3 mb-8">
@@ -19,7 +21,7 @@ export default function HeroSection() {
                 "Operating across 47 countries with 108 clinics worldwide",
                 "Trusted by celebrities, athletes, global leaders & health-conscious individuals",
               ].map((item) => (
-                <li key={item} className="flex items-start gap-2 text-white/90 text-sm lg:text-base">
+                <li key={item} className="flex items-start gap-2 text-white/90 text-[18px] font-light leading-none tracking-normal">
                   <svg className="w-5 h-5 text-white flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
@@ -31,21 +33,21 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <a
                 href="#book-appointment"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary border-2 border-white font-semibold rounded-full hover:bg-white/90 transition-colors text-sm"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary border-2 border-white font-normal rounded-full hover:bg-white/90 transition-colors text-[20px] leading-none tracking-normal capitalize text-center"
               >
                 Book Your Consultation Now
               </a>
               <a
                 href="#iv-therapies"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary border-2 border-white font-semibold rounded-full hover:bg-white/90 transition-colors text-sm"
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary border-2 border-white font-normal rounded-full hover:bg-white/90 transition-colors text-[20px] leading-none tracking-normal capitalize text-center"
               >
                 Explore Our IV Therapies
               </a>
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-4xl lg:text-5xl font-bold text-white">3M+</span>
-              <span className="text-sm text-white/90 leading-tight">
+              <span className="text-[55px] font-black text-white leading-[50px] tracking-normal capitalize">3M+</span>
+              <span className="text-[18px] font-normal text-white/90 leading-none tracking-normal capitalize">
                 IV Therapies Delivered Globally
                 <br />
                 —And Counting.
@@ -61,7 +63,7 @@ export default function HeroSection() {
               width={600}
               height={500}
               priority
-              className="w-full h-auto rounded-2xl"
+              className="w-full h-auto max-h-[500px] object-contain rounded-2xl"
             />
           </div>
         </div>

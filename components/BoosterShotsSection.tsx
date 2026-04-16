@@ -5,7 +5,7 @@ export default function BoosterShotsSection() {
   return (
     <section id="booster-shots" className="bg-white py-16 lg:py-20">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">
+        <h2 className="text-[48px] font-normal leading-none tracking-normal capitalize text-primary mb-12">
           Booster Shots (IM)
         </h2>
 
@@ -13,7 +13,7 @@ export default function BoosterShotsSection() {
           {boosterShots.map((shot) => (
             <div
               key={shot.id}
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+              className="card-container"
             >
               <div className="p-6 flex items-center justify-center">
                 <Image
@@ -21,19 +21,20 @@ export default function BoosterShotsSection() {
                   alt={`${shot.name} booster shot by REVIV`}
                   width={200}
                   height={200}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-contain h-44"
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-lg font-bold text-primary mb-2">
+                <h3 className="text-[25px] font-normal text-primary leading-none tracking-normal capitalize mb-2">
                   {shot.name}
                 </h3>
-                <p className="text-sm text-gray-600 mb-6 flex-1 leading-relaxed">
+                <p className="text-[14px] font-normal text-gray-600 mb-6 flex-1 leading-none tracking-normal">
                   {shot.description}
                 </p>
                 <a
                   href="#book-appointment"
-                  className="block text-center py-2.5 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-dark transition-colors"
+                  className="btn-book"
                 >
                   Book Now
                 </a>

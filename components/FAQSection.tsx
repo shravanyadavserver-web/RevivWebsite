@@ -30,13 +30,13 @@ export default function FAQSection() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
-        <p className="text-sm font-semibold text-[#041E42] uppercase tracking-wider mb-2">
+        <p className="text-[20px] font-normal text-navy leading-none tracking-normal uppercase mb-2">
           FREQUENTLY ASKED QUESTIONS
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+        <h2 className="text-[48px] font-normal leading-none tracking-normal capitalize text-primary mb-4">
           Your Guide To Common Questions
         </h2>
-        <p className="text-gray-600 mb-10 max-w-2xl">
+        <p className="text-[20px] font-normal text-[#5D5D5D] leading-[22px] tracking-normal mb-10 max-w-2xl">
           Answers to commonly asked questions about IV therapy, consultations, and
           clinical care.
         </p>
@@ -45,18 +45,33 @@ export default function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={faq.question}
-              className="border-2 border-primary rounded-xl overflow-hidden h-[120px]"
+              className={`border-2 border-primary rounded-xl overflow-hidden transition-all duration-300 ${
+                openIndex === index ? "h-auto" : "h-[120px]"
+              }`}
             >
-              <div
+              <button
+                type="button"
                 className="w-full p-6 text-left h-full"
+                onClick={() => toggle(index)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    toggle(index);
+                  }
+                }}
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${index}`}
               >
-                <h3 className="text-base font-semibold text-primary mb-2 line-clamp-1">
+                <h3 className={`text-base font-semibold text-primary mb-2 ${openIndex === index ? "" : "line-clamp-1"}`}>
                   {faq.question}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+                <p
+                  id={`faq-answer-${index}`}
+                  className={`text-sm text-gray-600 leading-relaxed ${openIndex === index ? "" : "line-clamp-2"}`}
+                >
                   {faq.answer}
                 </p>
-              </div>
+              </button>
             </div>
           ))}
         </div>

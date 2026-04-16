@@ -9,8 +9,17 @@ function FlipCard({ item }: { item: (typeof getRevivedData)[number] }) {
 
   return (
     <div
+      role="button"
+      tabIndex={0}
       className="cursor-pointer [perspective:1000px]"
       onClick={() => setFlipped(!flipped)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          setFlipped(!flipped);
+        }
+      }}
+      aria-label={`${item.title} — ${flipped ? "showing recommended therapies" : "tap to see recommended therapies"}`}
     >
       <div
         className={`relative w-full min-h-[200px] transition-transform duration-500 [transform-style:preserve-3d] ${
@@ -18,7 +27,7 @@ function FlipCard({ item }: { item: (typeof getRevivedData)[number] }) {
         }`}
       >
         {/* Front */}
-        <div className="absolute inset-0 [backface-visibility:hidden] border border-gray-200 rounded-xl p-6">
+        <div className="absolute inset-0 [backface-visibility:hidden] border border-gray-200 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
           <Image
             src={item.icon}
             alt={item.title}
@@ -26,10 +35,10 @@ function FlipCard({ item }: { item: (typeof getRevivedData)[number] }) {
             height={60}
             className="mb-4"
           />
-          <h3 className="text-base font-semibold text-primary mb-2 leading-snug">
+          <h3 className="text-[22px] font-normal text-primary mb-2 leading-none tracking-normal">
             {item.title}
           </h3>
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <p className="text-[14px] font-normal text-gray-600 leading-none tracking-normal">
             {item.description}
           </p>
         </div>
@@ -56,7 +65,7 @@ export default function GetRevivedSection() {
   return (
     <section className="bg-white py-16 lg:py-20">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12">
+        <h2 className="text-[48px] font-normal leading-none tracking-normal capitalize text-primary mb-12">
           Get REVIVed Today
         </h2>
 

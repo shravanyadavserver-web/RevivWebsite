@@ -17,21 +17,29 @@ const timeSlots = [
 
 export default function BookingForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    setSubmitting(true);
+    setError(false);
+
     try {
-      await fetch("/", {
+      const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
       });
+      if (!response.ok) throw new Error("Submission failed");
       setSubmitted(true);
     } catch {
-      setSubmitted(true);
+      setError(true);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -59,7 +67,7 @@ export default function BookingForm() {
   return (
     <section id="book-appointment" className="bg-primary/5 py-16 lg:py-20">
       <div className="max-w-3xl mx-auto px-6 lg:px-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2 text-center">
+        <h2 className="section-heading mb-2 text-center">
           Book Your Appointment
         </h2>
         <p className="text-gray-600 text-center mb-10">
@@ -83,7 +91,7 @@ export default function BookingForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="name" className="form-label">
                 Full Name *
               </label>
               <input
@@ -91,12 +99,12 @@ export default function BookingForm() {
                 id="name"
                 name="name"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                className="form-input"
                 placeholder="Your full name"
               />
             </div>
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="phone" className="form-label">
                 Phone Number *
               </label>
               <input
@@ -105,12 +113,12 @@ export default function BookingForm() {
                 name="phone"
                 required
                 pattern="[0-9+\-\s]{10,15}"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                className="form-input"
                 placeholder="+91 XXXXX XXXXX"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className="form-label">
                 Email Address *
               </label>
               <input
@@ -118,19 +126,19 @@ export default function BookingForm() {
                 id="email"
                 name="email"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                className="form-input"
                 placeholder="your@email.com"
               />
             </div>
             <div>
-              <label htmlFor="treatment" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="treatment" className="form-label">
                 Treatment Type *
               </label>
               <select
                 id="treatment"
                 name="treatment"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-white"
+                className="form-input bg-white"
               >
                 <option value="">Select a treatment</option>
                 <optgroup label="IV Therapies">
@@ -150,7 +158,7 @@ export default function BookingForm() {
               </select>
             </div>
             <div>
-              <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="date" className="form-label">
                 Preferred Date *
               </label>
               <input
@@ -159,18 +167,18 @@ export default function BookingForm() {
                 name="date"
                 required
                 min={new Date().toISOString().split("T")[0]}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none"
+                className="form-input"
               />
             </div>
             <div>
-              <label htmlFor="time-slot" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="time-slot" className="form-label">
                 Time Slot *
               </label>
               <select
                 id="time-slot"
                 name="time-slot"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-white"
+                className="form-input bg-white"
               >
                 <option value="">Select a time</option>
                 {timeSlots.map((slot) => (
@@ -183,23 +191,30 @@ export default function BookingForm() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="message" className="form-label">
               Message (Optional)
             </label>
             <textarea
               id="message"
               name="message"
               rows={4}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none resize-none"
+              className="form-input resize-none"
               placeholder="Any additional information or questions..."
             />
           </div>
 
+          {error && (
+            <p className="text-red-600 text-sm text-center" role="alert">
+              Something went wrong. Please try again or call us at +91 888 555 0059.
+            </p>
+          )}
+
           <button
             type="submit"
-            className="w-full py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-colors text-sm"
+            disabled={submitting}
+            className="w-full py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Submit Appointment Request
+            {submitting ? "Submitting..." : "Submit Appointment Request"}
           </button>
         </form>
       </div>
