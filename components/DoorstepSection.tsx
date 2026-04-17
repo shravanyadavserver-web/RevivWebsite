@@ -38,7 +38,7 @@ export default function DoorstepSection() {
             </div>
             <a
               href="#book-appointment"
-              className="inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-colors text-sm"
+              className="hidden lg:inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-colors text-sm"
             >
               Book Appointment
             </a>
@@ -52,6 +52,15 @@ export default function DoorstepSection() {
               height={600}
               className="rounded-2xl object-cover"
             />
+          </div>
+
+          <div className="flex justify-center lg:hidden">
+            <a
+              href="#book-appointment"
+              className="inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-colors text-sm"
+            >
+              Book Appointment
+            </a>
           </div>
         </div>
       </div>

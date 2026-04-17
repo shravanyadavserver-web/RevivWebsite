@@ -15,14 +15,14 @@ export default function BoosterShotsSection() {
               key={shot.id}
               className="card-container"
             >
-              <div className="p-6 flex items-center justify-center">
+              <div className="w-full aspect-square">
                 <Image
                   src={shot.image}
                   alt={`${shot.name} booster shot by REVIV`}
-                  width={200}
-                  height={200}
+                  width={400}
+                  height={400}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-contain h-44"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col">

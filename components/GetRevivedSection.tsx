@@ -1,29 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import getRevivedData from "@/data/get-revived.json";
 
-function FlipCard({ item }: { item: (typeof getRevivedData)[number] }) {
-  const [flipped, setFlipped] = useState(false);
+function FlipCard({ item, flipped }: { item: (typeof getRevivedData)[number]; flipped: boolean }) {
+  const holdingRef = useRef(false);
+  const [localFlipped, setLocalFlipped] = useState(flipped);
+
+  useEffect(() => {
+    if (!holdingRef.current) {
+      setLocalFlipped(flipped);
+    }
+  }, [flipped]);
+
+  const onHoldStart = () => {
+    holdingRef.current = true;
+  };
+
+  const onHoldEnd = () => {
+    holdingRef.current = false;
+    setLocalFlipped(flipped);
+  };
 
   return (
     <div
-      role="button"
-      tabIndex={0}
-      className="cursor-pointer [perspective:1000px]"
-      onClick={() => setFlipped(!flipped)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          setFlipped(!flipped);
-        }
-      }}
-      aria-label={`${item.title} — ${flipped ? "showing recommended therapies" : "tap to see recommended therapies"}`}
+      className="[perspective:1000px]"
+      onMouseDown={onHoldStart}
+      onMouseUp={onHoldEnd}
+      onMouseLeave={onHoldEnd}
+      onTouchStart={onHoldStart}
+      onTouchEnd={onHoldEnd}
+      aria-label={`${item.title} — ${localFlipped ? "showing recommended therapies" : "hold to pause"}`}
     >
       <div
         className={`relative w-full min-h-[200px] transition-transform duration-500 [transform-style:preserve-3d] ${
-          flipped ? "[transform:rotateY(180deg)]" : ""
+          localFlipped ? "[transform:rotateY(180deg)]" : ""
         }`}
       >
         {/* Front */}
@@ -62,6 +74,15 @@ function FlipCard({ item }: { item: (typeof getRevivedData)[number] }) {
 }
 
 export default function GetRevivedSection() {
+  const [flipped, setFlipped] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFlipped((prev) => !prev);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="bg-white py-16 lg:py-20">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
@@ -70,8 +91,8 @@ export default function GetRevivedSection() {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {getRevivedData.map((item) => (
-            <FlipCard key={item.title} item={item} />
+          {getRevivedData.map((item, i) => (
+            <FlipCard key={item.title} item={item} flipped={flipped} />
           ))}
         </div>
       </div>

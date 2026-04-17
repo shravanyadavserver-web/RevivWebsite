@@ -58,7 +58,7 @@ export default function BookingForm() {
             </h3>
             <p className="text-gray-600">
               Your appointment request has been received. Our team will contact you
-              shortly to confirm your booking.
+              shortly.
             </p>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function BookingForm() {
             disabled={submitting}
             className="w-full py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary-dark transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {submitting ? "Submitting..." : "Submit Appointment Request"}
+            {submitting ? "Submitting..." : "Submit"}
           </button>
         </form>
       </div>

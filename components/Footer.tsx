@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/logo.png"
+              src="/Logo.svg"
               alt="REVIV Hyderabad logo"
               width={120}
               height={40}
@@ -20,11 +20,14 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Clinic Info */}
+          {/* Address Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Clinic</h3>
+            <h3 className="text-lg font-semibold mb-4">Address</h3>
             <p className="text-sm text-blue-100 leading-relaxed mb-4">
-              {contact.address}
+              REVIV - Hyderabad
+              <br />
+              1<sup>st</sup> Floor, House No. 8-2-293/A/82/1299-F1,
+               Road No. 68, Jubilee Hills, Beside Lucid Medical Diagnostic Centre, Hyderabad - 500033, Telangana State, India
             </p>
             <h4 className="text-base font-semibold mb-2">Timings</h4>
             <p className="text-sm text-blue-100 mb-4">{contact.timings}</p>

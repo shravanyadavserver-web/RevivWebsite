@@ -15,17 +15,17 @@ export default function IVTherapiesSection() {
               key={therapy.id}
               className="card-container"
             >
-              <div className="p-6 flex items-center justify-center bg-white">
+              <div className="pt-6 flex items-center justify-center bg-white">
                 <Image
                   src={therapy.image}
                   alt={`${therapy.name} IV therapy bag by REVIV`}
-                  width={200}
+                  width={400}
                   height={250}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-contain h-52"
+                  className="object-contain w-full h-52"
                 />
               </div>
-              <div className="p-6 flex-1 flex flex-col">
+              <div className="p-6 pt-3 flex-1 flex flex-col">
                 <h3 className="text-[25px] font-normal text-primary leading-none tracking-normal capitalize mb-1">
                   {therapy.name}
                 </h3>

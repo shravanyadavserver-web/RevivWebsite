@@ -59,7 +59,7 @@ export default function Header() {
       <div className="max-w-[1440px] mx-auto flex items-center justify-between px-6 lg:px-16 h-[68px]">
         <Link href="/" className="flex-shrink-0">
           <Image
-            src="/logo.png"
+            src="/Logo.svg"
             alt="REVIV Hyderabad logo"
             width={120}
             height={40}
@@ -91,13 +91,20 @@ export default function Header() {
           Book Appointment
         </a>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden p-2 text-gray-700 hover:text-primary transition-colors"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-        >
+        {/* Mobile: Book + Hamburger */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href="#book-appointment"
+            className="inline-flex items-center px-4 py-2 bg-primary text-white text-xs font-semibold rounded-full hover:bg-primary-dark transition-colors"
+          >
+            Book Now
+          </a>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="p-2 text-gray-700 hover:text-primary transition-colors"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+          >
           {mobileOpen ? (
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -107,7 +114,8 @@ export default function Header() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
-        </button>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

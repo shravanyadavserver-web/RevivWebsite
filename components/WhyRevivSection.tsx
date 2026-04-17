@@ -5,8 +5,8 @@ export default function WhyRevivSection() {
   return (
     <section id="why-reviv" className="bg-section-bg py-16 lg:py-20">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 items-stretch">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 items-stretch">
+          <div className="lg:col-span-2">
             <p className="text-[20px] font-normal text-navy leading-none tracking-normal uppercase mb-2">
               EMPOWERING PREVENTIVE HEALTHCARE
             </p>
@@ -26,19 +26,20 @@ export default function WhyRevivSection() {
               supervision to ensure safety, consistency, and clinical integrity.
             </p>
           </div>
-          <div className="relative flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end">
             <Image
               src="/images/why-reviv.jpg"
               alt="Couple enjoying IV therapy at REVIV Hyderabad"
-              fill
-              className="rounded-2xl object-cover"
+              width={404}
+              height={320}
+              className="rounded-2xl object-contain w-full h-auto"
             />
           </div>
         </div>
 
         {/* Comparison Table */}
-        <div className="overflow-x-auto rounded-xl border border-gray-200">
-          <table className="w-full border-collapse">
+        <div className="overflow-hidden rounded-xl border border-gray-200">
+          <table className="w-full border-collapse table-fixed">
             <thead>
               <tr>
                 <th scope="col" className="text-left p-4 bg-white text-gray-900 font-semibold text-base">

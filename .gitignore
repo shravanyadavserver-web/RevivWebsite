@@ -46,3 +46,6 @@ figma-design*.png
 
 # duplicate logo (website uses public/logo.png)
 /Logo.png
+
+# Local Netlify folder
+.netlify

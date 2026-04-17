@@ -7,26 +7,26 @@ import type { Testimonial } from "@/types";
 
 const TestimonialCard = memo(function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="flex flex-col md:h-[320px]">
+    <div className="flex flex-col md:h-[320px] pt-[60px]">
       {/* Card body */}
-      <div className="relative bg-white rounded-[2rem] pl-[90px] pr-6 pt-8 pb-6 flex-1 flex flex-col">
-        {/* Circular photo overlapping left edge */}
-        <div className="absolute -left-[60px] top-1/2 -translate-y-1/2 z-10">
+      <div className="relative bg-white rounded-[2rem] px-6 pt-16 pb-6 flex-1 flex flex-col">
+        {/* Circular photo at top center */}
+        <div className="absolute left-1/2 -translate-x-1/2 -top-[60px] z-10">
           <Image
             src={testimonial.image}
             alt={`${testimonial.name} - REVIV patient`}
             width={150}
             height={150}
             sizes="140px"
-            className="rounded-full object-cover w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] border-4 border-blue-200/60"
+            className="rounded-full object-cover w-[120px] h-[120px]"
           />
         </div>
         {/* Quote text */}
-        <p className="text-[15px] font-normal text-[#5D5D5D] leading-[22px] tracking-normal capitalize flex-1">
+        <p className="text-[15px] font-normal text-[#5D5D5D] leading-[22px] tracking-normal capitalize flex-1 text-center">
           {testimonial.quote}
         </p>
         {/* Name at bottom */}
-        <p className="text-[16px] font-bold text-[#2A2A2A] leading-[22px] tracking-normal capitalize mt-4">
+        <p className="text-[16px] font-bold text-[#2A2A2A] leading-[22px] tracking-normal capitalize mt-4 text-center">
           {testimonial.name}
         </p>
       </div>
@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
         {/* Header with arrows */}
         <div className="flex items-start justify-between mb-14">
           <div>
-            <p className="text-[20px] font-normal text-white leading-none tracking-normal uppercase">
+            <p className="text-[20px] font-normal text-white leading-none tracking-normal uppercase mb-4">
               WE ARE TOP RATED ON GOOGLE!
             </p>
             <h2 className="text-[48px] font-normal text-white leading-none tracking-normal capitalize">
@@ -109,7 +109,7 @@ export default function TestimonialsSection() {
               return (
                 <div
                   key={pageIdx}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-8 pl-16 pr-4"
+                  className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 px-4"
                   style={{ width: `${100 / totalPages}%` }}
                 >
                   {pageItems.map((testimonial) => (

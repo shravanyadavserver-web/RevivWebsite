@@ -45,7 +45,7 @@ export default function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={faq.question}
-              className={`border-2 border-primary rounded-xl overflow-hidden transition-all duration-300 ${
+              className={`border-2 border-section-bg rounded-xl overflow-hidden transition-all duration-300 ${
                 openIndex === index ? "h-auto" : "h-[120px]"
               }`}
             >
