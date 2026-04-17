@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import ivTherapies from "@/data/iv-therapies.json";
-import boosterShots from "@/data/booster-shots.json";
+import treatmentOptions from "@/data/treatment-options.json";
 
 const timeSlots = [
   "11:00 AM",
@@ -141,20 +140,11 @@ export default function BookingForm() {
                 className="form-input bg-white"
               >
                 <option value="">Select a treatment</option>
-                <optgroup label="IV Therapies">
-                  {ivTherapies.map((t) => (
-                    <option key={t.id} value={t.name}>
-                      {t.name}
-                    </option>
-                  ))}
-                </optgroup>
-                <optgroup label="Booster Shots">
-                  {boosterShots.map((s) => (
-                    <option key={s.id} value={s.name}>
-                      {s.name}
-                    </option>
-                  ))}
-                </optgroup>
+                {treatmentOptions.map((t) => (
+                  <option key={t.value} value={t.value}>
+                    {t.label}
+                  </option>
+                ))}
               </select>
             </div>
             <div>

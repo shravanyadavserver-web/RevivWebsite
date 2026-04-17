@@ -1,0 +1,21 @@
+[
+  { "label": "Unsure, Need Recommendation", "value": "need-recommendation" },
+  { "label": "Call Me", "value": "call-me" },
+  { "label": "Vitaglow", "value": "vitaglow" },
+  { "label": "Miniboost", "value": "miniboost" },
+  { "label": "Megaboost", "value": "megaboost" },
+  { "label": "NAD+ IV", "value": "nad-iv" },
+  { "label": "Ultraviv", "value": "ultraviv" },
+  { "label": "Ultraviv PRO", "value": "ultraviv-pro" },
+  { "label": "Hydromax", "value": "hydromax" },
+  { "label": "REVIVe", "value": "revive" },
+  { "label": "Royal Flush", "value": "royal-flush" },
+  { "label": "Methylene Blue", "value": "methylene-blue" },
+  { "label": "10X Signature IV", "value": "10x-signature-iv" },
+  { "label": "Glutathione", "value": "glutathione" },
+  { "label": "Slimboost", "value": "slimboost" },
+  { "label": "NAD+", "value": "nad-plus" },
+  { "label": "B Family", "value": "b-family" },
+  { "label": "Vitamin C", "value": "vitamin-c" },
+  { "label": "Vitamin D", "value": "vitamin-d" }
+]

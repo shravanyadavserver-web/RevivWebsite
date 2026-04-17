@@ -1,4 +1,5 @@
 import Image from "next/image";
+import contact from "@/data/contact.json";
 
 export default function Footer() {
   return (
@@ -23,33 +24,28 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Clinic</h3>
             <p className="text-sm text-blue-100 leading-relaxed mb-4">
-              REVIV (Shravan Wellness)
-              <br />
-              First Floor, House No. 8-2-293/ A/82/1299-F1, Road No. 68, Jubilee
-              Hills, Beside Lucid Medical Diagnostic Centre, Hyderabad - 500033,
-              <br />
-              Telangana State, India
+              {contact.address}
             </p>
             <h4 className="text-base font-semibold mb-2">Timings</h4>
-            <p className="text-sm text-blue-100 mb-4">Tue - Sun 11AM to 7PM</p>
+            <p className="text-sm text-blue-100 mb-4">{contact.timings}</p>
             <div className="space-y-2">
               <a
-                href="tel:+918885550059"
+                href={`tel:${contact.phone}`}
                 className="flex items-center gap-2 text-sm text-blue-100 hover:text-white transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                +91 888 555 0059
+                {contact.phoneDisplay}
               </a>
               <a
-                href="mailto:revivhyderabad@gmail.com"
+                href={`mailto:${contact.email}`}
                 className="flex items-center gap-2 text-sm text-blue-100 hover:text-white transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                revivhyderabad@gmail.com
+                {contact.email}
               </a>
             </div>
           </div>
@@ -76,7 +72,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/revivhyderabad"
+                href={contact.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -87,7 +83,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.facebook.com/revivhyderabad"
+                href={contact.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -98,7 +94,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/@revivhyderabad"
+                href={contact.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
