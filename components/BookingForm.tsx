@@ -118,19 +118,6 @@ export default function BookingForm() {
               />
             </div>
             <div>
-              <label htmlFor="email" className="form-label">
-                Email Address *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="form-input"
-                placeholder="your@email.com"
-              />
-            </div>
-            <div>
               <label htmlFor="treatment" className="form-label">
                 Treatment Type *
               </label>

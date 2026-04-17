@@ -1,6 +1,7 @@
 [
   { "label": "Unsure, Need Recommendation", "value": "need-recommendation" },
   { "label": "Call Me", "value": "call-me" },
+  { "label": "At Home", "value": "at-home" },
   { "label": "Vitaglow", "value": "vitaglow" },
   { "label": "Miniboost", "value": "miniboost" },
   { "label": "Megaboost", "value": "megaboost" },
