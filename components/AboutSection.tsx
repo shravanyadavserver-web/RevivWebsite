@@ -48,7 +48,7 @@ export default function AboutSection() {
         {/* Mobile: horizontal scroll, 2 visible per screen */}
         <div className="lg:hidden overflow-hidden">
           <div ref={scrollRef} className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory">
-            {aboutFeatures.map((feature, i) => (
+            {aboutFeatures.map((feature) => (
               <div key={feature.title} className="flex items-center gap-2 min-w-[50%] w-[50%] flex-shrink-0 snap-start box-border pr-4">
                 <Image
                   src={feature.icon}
