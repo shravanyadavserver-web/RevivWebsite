@@ -29,18 +29,16 @@ export default function BookingForm() {
 
     try {
       const body = new URLSearchParams(formData as unknown as Record<string, string>).toString();
-      const response = await fetch("/", {
+      const response = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body,
       });
       if (!response.ok) {
-        console.error("Form submission failed:", response.status, response.statusText);
         throw new Error("Submission failed");
       }
       setSubmitted(true);
-    } catch (err) {
-      console.error("Form error:", err);
+    } catch {
       setError(true);
     } finally {
       setSubmitting(false);
@@ -81,8 +79,6 @@ export default function BookingForm() {
         <form
           name="booking"
           method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
           className="bg-white rounded-2xl p-8 shadow-sm space-y-6"
         >
