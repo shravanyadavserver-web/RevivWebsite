@@ -28,14 +28,19 @@ export default function BookingForm() {
     setError(false);
 
     try {
+      const body = new URLSearchParams(formData as unknown as Record<string, string>).toString();
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+        body,
       });
-      if (!response.ok) throw new Error("Submission failed");
+      if (!response.ok) {
+        console.error("Form submission failed:", response.status, response.statusText);
+        throw new Error("Submission failed");
+      }
       setSubmitted(true);
-    } catch {
+    } catch (err) {
+      console.error("Form error:", err);
       setError(true);
     } finally {
       setSubmitting(false);
