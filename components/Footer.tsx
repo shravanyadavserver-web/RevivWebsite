@@ -24,7 +24,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Address</h3>
             <p className="text-sm text-blue-100 leading-relaxed mb-4">
-              REVIV - Hyderabad
+              Shravan Wellness (REVIV)
               <br />
               1<sup>st</sup> Floor, House No. 8-2-293/A/82/1299-F1,
                Road No. 68, Jubilee Hills, Beside Lucid Medical Diagnostic Centre, Hyderabad - 500033, Telangana State, India
